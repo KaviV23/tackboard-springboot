@@ -19,9 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
-//    @Autowired
-//    private UserService userService;
-//
+
     @Autowired
     private AuthenticationManager authenticationManager;
 
@@ -46,23 +44,5 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
     }
-
-//    @PostMapping("/register")
-//    public ResponseEntity<?> register(@RequestBody User user) {
-//        User savedUser = userService.register(user);
-//        return ResponseEntity.ok(savedUser);
-//    }
-
-//    @PostMapping("/login")
-//    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
-//        UserDetails user = userService.loadUserByUsername(request.getUsername());
-//
-//        if (!new BCryptPasswordEncoder().matches(request.getPassword(), user.getPassword())) {
-//            throw new RuntimeException("Invalid credentials");
-//        }
-//
-//        String token = jwtUtil.generateToken(user.getUsername());
-//        return ResponseEntity.ok(new LoginResponse(token));
-//    }
 
 }
