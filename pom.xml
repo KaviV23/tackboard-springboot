@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.kavirajv</groupId>
-	<artifactId>tackboard</artifactId>
+	<artifactId>tackboard-springboot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>tackboard</name>
 	<description>A to-do list website</description>
