@@ -30,4 +30,12 @@ public class TodoService {
         return todoRepo.findTodoByUser(user);
     }
 
+    public List<Todo> findByUserAndStatus(User user, String status) {
+        return todoRepo.findTodoByUserAndStatus(user, status);
+    }
+
+    public int updateStatusById(Long id, String status) {
+        return todoRepo.updateStatusById(id, status);
+    }
+
 }
