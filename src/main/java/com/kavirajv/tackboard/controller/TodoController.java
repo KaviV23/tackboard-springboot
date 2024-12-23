@@ -19,6 +19,7 @@ public class TodoController {
     @Autowired
     private TodoService todoService;
 
+
     @PostMapping
     public ResponseEntity<?> saveTodo(@AuthenticationPrincipal User user, @RequestBody TodoRequest request) {
         Todo newTodo = todoService.saveTodo(user, request);
@@ -26,11 +27,13 @@ public class TodoController {
         return ResponseEntity.ok(newTodo);
     }
 
+
     @GetMapping
     public ResponseEntity<?> getTodos(@AuthenticationPrincipal User user) {
         List<Todo> todosByUser = todoService.findByUserAndStatus(user, "Pending");
         return ResponseEntity.ok(todosByUser);
     }
+
 
     @PostMapping("/updateStatus")
     public ResponseEntity<?> updateStatusToComplete(@RequestBody TodoRequest request) {

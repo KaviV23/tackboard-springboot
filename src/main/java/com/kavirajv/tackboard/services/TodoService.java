@@ -14,9 +14,6 @@ public class TodoService {
     @Autowired
     private TodoRepo todoRepo;
 
-    public List<Todo> getUserTodosById(Long id) {
-        return todoRepo.findTodoById(id);
-    }
 
     public Todo saveTodo(User user, TodoRequest request) {
         Todo todo = new Todo();
@@ -26,16 +23,23 @@ public class TodoService {
         return todoRepo.save(todo);
     }
 
-    public List<Todo> findByUser(User user) {
-        return todoRepo.findTodoByUser(user);
-    }
-
     public List<Todo> findByUserAndStatus(User user, String status) {
         return todoRepo.findTodoByUserAndStatus(user, status);
     }
 
     public int updateStatusById(Long id, String status) {
         return todoRepo.updateStatusById(id, status);
+    }
+
+
+    // unused actions
+
+    public List<Todo> findByUser(User user) {
+        return todoRepo.findTodoByUser(user);
+    }
+
+    public List<Todo> getUserTodosById(Long id) {
+        return todoRepo.findTodoById(id);
     }
 
 }

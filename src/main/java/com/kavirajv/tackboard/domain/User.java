@@ -17,17 +17,27 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(nullable = false, unique = true)
     private String username;
+
     @Column(nullable = false)
     private String password;
+
+    // currently not used
+
     @Column(nullable = true, unique = true)
     private String email;
+
     private LocalDate createdAt;
     private LocalDate updatedAt;
+
+
+    // implemented from UserDetails
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

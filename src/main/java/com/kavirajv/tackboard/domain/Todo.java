@@ -10,16 +10,26 @@ import java.time.LocalDate;
 @Getter
 @Entity
 public class Todo {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @ManyToOne(optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
     @Column(nullable = false)
     private String title;
+
     private String description;
+
     private String status = "Pending";
+
+
+    // currently not used
+
     private LocalDate createdAt;
+
     private LocalDate updatedAt;
 }

@@ -11,12 +11,15 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface TodoRepo extends JpaRepository<Todo, Long> {
+
     List<Todo> findTodoById(Long id);
+
     List<Todo> findTodoByUser(User user);
+
     List<Todo> findTodoByUserAndStatus(User user, String string);
 
     @Modifying
-    @Transactional
+    @Transactional // transactions allow queries to be rolled back if an exception occurs while an operation is being carried out
     @Query("UPDATE Todo t SET t.status = :status WHERE t.id = :id")
     int updateStatusById(Long id, String status);
 }

@@ -16,18 +16,22 @@ public class UserService implements UserDetailsService {
     @Autowired
     private UserRepo userRepo;
 
+
     public User register(User user) {
         user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
         return userRepo.save(user);
-    }
-
-    public Optional<User> findUserByUsername(String username) {
-        return userRepo.findByUsername(username);
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> user = userRepo.findByUsername(username);
         return user.orElseThrow(() -> new UsernameNotFoundException("Invalid credentials"));
+    }
+
+
+    // unused code
+
+    public Optional<User> findUserByUsername(String username) {
+        return userRepo.findByUsername(username);
     }
 }
